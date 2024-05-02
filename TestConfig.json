@@ -1,0 +1,7 @@
+{
+  "env": {
+      "base_url":"https://api-echa.beta.3eiq.com/Prod/resources",
+      "max_response_time": "100",
+      "api-key": "verisk3e"
+  }
+}

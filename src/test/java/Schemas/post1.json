@@ -1,0 +1,160 @@
+[
+    {
+        "businessKey": "EU-WORKER_CARC_MUTA-ANX_I_ART_2",
+        "shortTitle": {
+            "englishText": "Carc and Muta Directive, Annex I - Substances, Mixtures & Processes",
+            "originalLanguageCode": "en",
+            "originalLanguageText": "Carc and Muta Directive, Annex I - Substances, Mixtures & Processes"
+        },
+        "longTitle": {
+            "englishText": "EU. Substances, Mixtures, Related Processes: Annex I & Art. 2, Dir 2004/37/EC (CMRD), as amended by Dir (EU) 2022/431, 16 March 2022",
+            "originalLanguageCode": "en",
+            "originalLanguageText": "EU. Substances, Mixtures, Related Processes: Annex I & Art. 2, Dir 2004/37/EC (CMRD), as amended by Dir (EU) 2022/431, 16 March 2022"
+        },
+        "description": "This list contains a non-exhaustive inventory of substances based on Art. 2 carcinogen, mutagen and reprotoxin (CMR) definitions and Annex I of the Carcinogens, Mutagens and Reprotoxins Directive (CMRD). Category 1A and 1B CMRs are derived from the CLP Regulation's Table 3 of Annex VI (1272/2008/EC). Employers are obligated to minimize worker exposure to these agents as far as possible, and must arrange for medical surveillance of workers exposed to these substances.",
+        "listType": "DERIVED",
+        "obligationType": "RESTRICTION",
+        "specification": [
+            {     
+                "fieldName": "Name",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substance Name",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_cas",
+                "fieldName": "CAS",
+                "fieldType": "TEXT",
+                "fieldDescription": "CAS RN or other identifier.",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_eccar_n",
+                "fieldName": "Notes",
+                "fieldType": "TEXT",
+                "fieldDescription": "Explanatory notes, content comments or other additional information in Annex I and Article 2, Directive 2004/37/EC",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_pref_source",
+                "fieldName": "English Name in Source",
+                "fieldType": "TEXT",
+                "fieldDescription": "English substance name as listed in the source document",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_eccar_subdsc",
+                "fieldName": "Substance Description",
+                "fieldType": "TEXT",
+                "fieldDescription": "Descriptors to facilitate substance identification",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_eccar_expras",
+                "fieldName": "Expressed As",
+                "fieldType": "TEXT",
+                "fieldDescription": "Basis on whose amount the quantity of the substance is expressed as",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_eccar_physform",
+                "fieldName": "Physical form",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substance's distinct physical state, phase, particle size and shape, internal structural arrangement, composition etc.",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_eccar_rest",
+                "fieldName": "Restriction(s)",
+                "fieldType": "TEXT",
+                "fieldDescription": "Specific requirements and limitations",
+                "fields": []
+            }
+        ],
+        "resourceStatus": "UPDATED",
+        "resourceType": "LEGISLATION_LIST"
+    },
+    {
+        "businessKey": "EU-ECOLABEL-ART_6_6",
+        "shortTitle": {
+            "englishText": "Ecolabel - Restrictions for Hazardous Substances/Mixtures",
+            "originalLanguageCode": "en",
+            "originalLanguageText": "Ecolabel - Restrictions for Hazardous Substances/Mixtures"
+        },
+        "longTitle": {
+            "englishText": "EU. Hazardous Substances which may Preclude Goods from the Ecolabel Award as per Article 6(6) of Regulation 66/2010/EC, L 27/1, 30 January 2010",
+            "originalLanguageCode": "en",
+            "originalLanguageText": "EU. Hazardous Substances which may Preclude Goods from the Ecolabel Award as per Article 6(6) of Regulation 66/2010/EC, L 27/1, 30 January 2010"
+        },
+        "description": "This list contains a non-exhaustive inventory of substances based on the list of hazardous substances with harmonised classification and labelling (i.e. Table 3 of Annex VI to the CLP Regulation), and the Candidate List of substances of very high concern (SVHCs). Pursuant to Article 6(6) of the EU Ecolabel Regulation, the ecolabel must not be awarded to goods containing substances or mixtures classified according to the CLP as toxic; hazardous to the environment; and carcinogenic, mutagenic, or toxic for reproduction (CMRs). Nor are products allowed the ecolabel award when they contain SVHCs (per Article 57 of REACH). While the CLP's harmonised list contains many such substances, other ones not listed in Table 3 may also meet the criteria specified for classification under the CLP.",
+        "listType": "DERIVED",
+        "obligationType": "INFO",
+        "specification": [
+            {
+                "fieldId": "fld_pref",
+                "fieldName": "Name",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substance Name",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_cas",
+                "fieldName": "CAS",
+                "fieldType": "TEXT",
+                "fieldDescription": "CAS RN or other identifier.",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_pref_source",
+                "fieldName": "English Name in Source",
+                "fieldType": "TEXT",
+                "fieldDescription": "English substance name as listed in the source document",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_clp",
+                "fieldName": "Table 3 of Annex VI to CLP",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substances listed on Table 3 of Annex VI to CLP Regulation (1272/2008)",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_svhc",
+                "fieldName": "EU REACH: List of SVHC",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substances listed on EU REACH Candidate List of substances of very high concern (SVHC)",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_subdsc",
+                "fieldName": "Substance Description",
+                "fieldType": "TEXT",
+                "fieldDescription": "Descriptors to facilitate substance identification",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_expras",
+                "fieldName": "Expressed As",
+                "fieldType": "TEXT",
+                "fieldDescription": "Basis on whose amount the quantity of the substance is expressed as",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_physform",
+                "fieldName": "Physical form",
+                "fieldType": "TEXT",
+                "fieldDescription": "Substance's distinct physical state, phase, particle size and shape, internal structural arrangement, composition etc.",
+                "fields": []
+            },
+            {
+                "fieldId": "fld_ece_rest",
+                "fieldName": "Restriction(s)",
+                "fieldType": "TEXT",
+                "fieldDescription": "Specific requirements and limitations",
+                "fields": []
+            }
+        ],
+        "resourceStatus": "UPDATED",
+        "resourceType": "LEGISLATION_LIST"
+    }
+]
