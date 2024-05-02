@@ -1,0 +1,93 @@
+# Maven
+# Build your Java project and run tests with Apache Maven.
+# Add steps that analyze code, save build artifacts, deploy, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/java
+
+trigger:
+- master
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- task: Maven@3
+  inputs:
+    mavenPomFile: './pom.xml'
+    mavenOptions: '-Xmx3072m'
+    javaHomeOption: 'JDKVersion'
+    jdkVersionOption: '17'
+    jdkArchitectureOption: 'x64'
+    publishJUnitResults: true
+    testResultsFiles: '**/surefire-reports/TEST-*.xml'
+    goals: 'test'
+  condition: always()
+
+# Publish the Extent Report as an artifact
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Extent Report'
+  inputs:
+    PathtoPublish: './ExtendReports/extentReport.html'
+    ArtifactName: 'ExtentReport'
+    publishLocation: 'Container'
+  condition: succeededOrFailed()  # Publish the report whether the build succeeds or fails
+
+# Send notification to Microsoft Teams with a link to the artifact
+- task: PowerShell@2
+  displayName: 'Notify Microsoft Teams'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $webhookUrl = "https://productsquads1.webhook.office.com/webhookb2/4d6e9b07-b8aa-4ec5-bdcf-1c05451d24f4@058c37d3-71cf-4a95-94a5-033acaf07be5/IncomingWebhook/de7a05ed35e342eb9a3191f364202169/7f6afc71-82c6-43c2-a22c-9ecd77c72e89"
+      $buildUrl = "$(System.TeamFoundationCollectionUri)$(System.TeamProject)/_build/results?buildId=$(Build.BuildId)"
+      $message = "Build successful! View the Extent Report [here]($buildUrl)"
+      $body = ConvertTo-Json -Depth 10 @{
+          text = $message
+      }
+      Invoke-RestMethod -Uri $webhookUrl -Method Post -ContentType 'Application/Json' -Body $body
+  condition: succeededOrFailed()  # Notify only on successful build
+
+# Send Email Report
+- task: PowerShell@2
+  displayName: 'Send Email Report'
+  inputs:
+    targetType: 'inline'
+    script: |
+      $smtpServer = "smtp-mail.outlook.com"
+      $smtpFrom = "meetnakrani013@gmail.com"
+      $smtpTo = "om.patel@productsquads.co"
+      $smtpUser = "meetnakrani013@gmail.com"
+      $smtpPass = "drquurmsafhtdgwp"  # Ensure you're using an app-specific password if using 2FA
+      $messageSubject = "Extent Report"
+      $messageBody = "Attached is the Extent Report from the latest test run."
+      $attachmentPath = "./test-output/extentReport.html"
+      
+      $smtpClient = New-Object System.Net.Mail.SmtpClient($smtpServer, 587)
+      $smtpClient.EnableSsl = $true
+      $smtpClient.UseDefaultCredentials = $false
+      $smtpClient.Credentials = New-Object System.Net.NetworkCredential($smtpUser, $smtpPass)
+      
+      $message = New-Object System.Net.Mail.MailMessage
+      $message.From = $smtpFrom
+      $message.To.Add($smtpTo)
+      $message.Subject = $messageSubject
+      $message.Body = $messageBody
+      
+      if (Test-Path $attachmentPath) {
+          $attachment = New-Object System.Net.Mail.Attachment($attachmentPath)
+          $message.Attachments.Add($attachment)
+      } else {
+          Write-Error "Attachment file not found: $attachmentPath"
+      }
+
+      try {
+          $smtpClient.Send($message)
+          Write-Host "Email sent successfully"
+      } catch {
+          Write-Error "An error occurred while sending the email: $_"
+      } finally {
+          $message.Dispose()
+          if ($attachment -ne $null) {
+              $attachment.Dispose()
+          }
+      }
+  condition: always()
